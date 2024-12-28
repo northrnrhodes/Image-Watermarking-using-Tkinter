@@ -6,8 +6,8 @@ from tkinter import filedialog
 #create window
 window = Tk()
 window.title('Image Watermarking')
-window.config(padx=20, pady=20)
-window.geometry("600x400")
+window.config(padx=20, pady=50)
+window.geometry("500x400")
 main_font = Font(family='Helvetica', size=32)
 img_font = Font(family='Helvetica', size=24)
 
@@ -26,23 +26,22 @@ def find_file():
 
 
 
-main_lbl = Label(text="Drag and drop photo to add watermark.", font=main_font)
-main_lbl.grid(row=0, column =0, columnspan=5)
-
-
-entry_lbl = Label(text="Image: ", font=img_font)
-entry_lbl.grid(row=1, column=1)
-entry_lbl.grid(pady=(60, 25))
+main_lbl = Label(text="Click Search File to find image.", font=main_font)
+main_lbl.grid(row=0, column =0, columnspan=3)
+main_lbl.grid( pady=(0, 60))
 
 entry = Entry()
 entry.grid(row=2, column=1, columnspan=2)
-entry.grid(pady=(0, 20))
+entry.config(width=35)
+
 
 open_file = Button(text='Search File', command=find_file)
 open_file.grid(column=0, row=2)
 
+
 submit = Button(text='Watermark!', command=watermark)
-submit.grid(column=1, row=4)
+submit.grid(column=1, row=3)
+submit.grid(pady=(50, 0))
 
 
 window.mainloop()
