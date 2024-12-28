@@ -3,7 +3,7 @@ from PIL import Image
 from tkinter.font import Font
 from tkinter import filedialog
 
-#creat window
+#create window
 window = Tk()
 window.title('Image Watermarking')
 window.config(padx=20, pady=20)
@@ -43,14 +43,6 @@ open_file.grid(column=0, row=2)
 
 submit = Button(text='Watermark!', command=watermark)
 submit.grid(column=1, row=4)
-
-
-
-# canvas = Canvas(width=500, height = 500)
-# canvas.create_image(500, 500)
-# canvas.grid(column=1, row=1)
-
-
 
 
 window.mainloop()
