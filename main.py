@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image
 from tkinter.font import Font
 from tkinter import filedialog
+from tkinter import messagebox
 
 #create window
 window = Tk()
@@ -14,10 +15,22 @@ img_font = Font(family='Helvetica', size=24)
 
 def watermark():
     path = entry.get()
-    with Image.open(path) as im:
-        im.show()
+    if len(path) == 0:
+        messagebox.showinfo(message="Please select path to image!")
+    else:
+        base_image = Image.open(path)
+        watermark = Image.open("./watermark image/watermark_test.png")
+        size = (300, 300)
+        watermark = watermark.resize(size)
+        x= base_image.width - watermark.width
+        y = base_image.height - watermark.height
+        base_image.paste(watermark, (x, y), watermark)
+        base_image.show()
 
-    entry.delete(0, END)
+        desktop_path = "/Users/joshrhodes/Desktop/"
+        base_image.save(desktop_path + "base_image.png")
+
+        entry.delete(0, END)
 
 
 def find_file():
