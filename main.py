@@ -22,15 +22,16 @@ def watermark():
         watermark = Image.open("./watermark image/watermark_test.png")
         size = (300, 300)
         watermark = watermark.resize(size)
-        x= base_image.width - watermark.width
+
+        x = base_image.width - watermark.width
         y = base_image.height - watermark.height
         base_image.paste(watermark, (x, y), watermark)
-        base_image.show()
 
         desktop_path = "/Users/joshrhodes/Desktop/"
-        base_image.save(desktop_path + "base_image.png")
+        base_image.save(desktop_path + "watermarked_img.png")
 
         entry.delete(0, END)
+        window.destroy()
 
 
 def find_file():
